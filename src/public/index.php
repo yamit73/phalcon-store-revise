@@ -183,15 +183,6 @@ $container->set(
 );
 //Event manager-------end------
 
-/**
- * Helper services
- */
-$container->set(
-    'helper',
-    function () {
-        return new \App\Components\Helper();
-    }
-);
 //container for signup logger
 $container->set(
     'signupLogger',
