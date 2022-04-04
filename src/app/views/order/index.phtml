@@ -1,0 +1,31 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead class="text-light bg-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Zipcode</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($orders as $order) {
+                echo '<tr>
+                        <th scope="row">'.$order->orders->id.'</th>
+                        <td>'.$order->orders->customer_name.'</td>
+                        <td>'.$order->orders->address.'</td>
+                        <td>'.$order->orders->zipcode.'</td>
+                        <td>'.$order->name.'</td>
+                        <td>'.$order->orders->quantity.'</td>
+                        <td><a href=order/add?id='.$order->orders->id.'>edit</a></td>
+                    </tr>';
+            }
+            ?>
+        </tbody>
+
+    </table>
+</div>

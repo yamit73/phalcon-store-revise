@@ -1,0 +1,55 @@
+<h1 class="text-center text-warning"><?php echo $this->locale->_('order_title');?></h1>
+<div class="w-50 m-auto">
+<?php
+
+echo $this->tag->form(['','class'=>'text-start']);
+// echo '<label for="customer_name" class="form-label">Customer Name</label>';
+// echo $this->tag->textField(["customer_name", 'class'=>"form-control", 'value'=>$order->customer_name ?? '']);
+?>
+<label for="customer_name" class="form-label">Select Customer</label>
+<select class="form-select" name="customer_name" aria-label="Default select example">
+  <option value="" selected></option>
+    <?php
+        foreach ($products as $product) {
+            if (isset($order) && $product->id == $order->product_id) {
+                echo '<option value="'.$product->id.'" selected>'.$product->name.'</option>';
+            } else {
+                echo '<option value="'.$product->id.'">'.$product->name.'</option>';
+            }
+        }
+    ?>
+  
+</select>
+<?php
+echo '<label for="address" class="form-label">Customer Address</label>';
+echo $this->tag->textArea(["address", 'class'=>"form-control", 'value'=>$order->address ?? '']);
+
+echo '<label for="zipcode" class="form-label">Zipcode</label>';
+echo $this->tag->textField(["zipcode", 'class'=>"form-control", 'value'=>$order->zipcode ?? '']);
+?>
+<label for="product_id" class="form-label">Select Product</label>
+<select class="form-select" name="product_id" aria-label="Default select example">
+  <option value="" selected></option>
+    <?php
+        foreach ($products as $product) {
+            if (isset($order) && $product->id == $order->product_id) {
+                echo '<option value="'.$product->id.'" selected>'.$product->name.'</option>';
+            } else {
+                echo '<option value="'.$product->id.'">'.$product->name.'</option>';
+            }
+        }
+    ?>
+  
+</select>
+<?php
+echo '<label for="quantity" class="form-label">Product Quantity</label>';
+echo $this->tag->textField(["quantity", 'class'=>"form-control", 'value'=>$order->quantity ?? '']);
+if (!isset($order)) {
+    echo $this->tag->submitButton(['Add Order', 'class'=>"btn btn-primary mt-3"]);
+} else {
+    echo $this->tag->submitButton(['Update Order', 'class'=>"btn btn-primary mt-3"]);
+}
+?>
+</form>
+</div>
+<div class="alert alert-danger w-50 m-auto mt-2"><?php if (isset($message)) echo $message; ?></div>

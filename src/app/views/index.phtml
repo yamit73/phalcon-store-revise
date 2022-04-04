@@ -1,0 +1,96 @@
+<?php
+    // echo $this->helper->isLoggedIn();
+    // die;
+?>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <link rel="stylesheet" href="/assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="mt-3 text-center">
+        <?php
+        echo $this->tag->linkTo(
+            [
+                'login',
+                'Login',
+                'class' => 'btn btn-sm btn-outline-info mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'user/add',
+                'Register User',
+                'class' => 'btn btn-sm btn-outline-info mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'user',
+                'User List',
+                'class' => 'btn btn-sm btn-outline-success mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'product',
+                'Product List!',
+                'class' => 'btn btn-sm btn-outline-success mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'product/add',
+                'Add Product!',
+                'class' => 'btn btn-sm btn-outline-info mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'order',
+                'Order List!',
+                'class' => 'btn btn-sm btn-outline-success mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'order/add',
+                'Order Add!',
+                'class' => 'btn btn-sm btn-outline-info mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'setting',
+                'Change settings!',
+                'class' => 'btn btn-sm btn-outline-warning mx-1'
+            ]
+        );
+        echo $this->tag->linkTo(
+            [
+                'role/add',
+                'Add roles!',
+                'class' => 'btn btn-sm btn-outline-info mx-1'
+            ]
+        );
+        ?>
+        <form>
+            <select class="form-select bg-primary d-inline" name='lan' onchange="form.submit()" style="width:125px;height:35px">
+                <option value="en" selected>English</option>
+                <option value="rus">Russian</option>
+                <option value="dch">Duch</option>
+            </select>
+        </form>
+        <hr>
+        <?php echo $this->getContent(); ?>
+    </div>
+    <script src="/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

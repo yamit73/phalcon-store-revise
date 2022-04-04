@@ -1,0 +1,25 @@
+<h1 class="text-center text-warning"><?php echo $this->locale->_('setting_title');?></h1>
+<div class="w-50 m-auto">
+<?php
+
+echo $this->tag->form(['','class'=>'text-start']);
+?>
+<label for="title_optimization" class="form-label">Select Title Optimization</label>
+<select class="form-select  mb-2" name="title_optimization" aria-label="Default select example">
+  <option value="off" <?php if ($setting->title_optimization=='off') echo 'selected'; ?>>Without title</option>
+  <option value="on" <?php if ($setting->title_optimization=='on') echo 'selected'; ?>>With title</option>
+</select>
+<?php
+echo '<label for="price" class="form-label">Price</label>';
+echo $this->tag->textField(["price", 'class'=>"form-control mb-2", 'value'=>$setting->price]);
+
+echo '<label for="stock" class="form-label">Stock</label>';
+echo $this->tag->textField(["stock", 'class'=>"form-control", 'value'=>$setting->stock]);
+
+echo '<label for="zipcode" class="form-label">Zipcode</label>';
+echo $this->tag->textField(["zipcode", 'class'=>"form-control mb-2", 'value'=>$setting->zipcode]);
+
+echo $this->tag->submitButton(["Update", 'class'=>"btn btn-primary mt-3"]);
+?>
+</div>
+<div class="alert alert-danger w-50 m-auto mt-2"><?php if (isset($message)) echo $message; ?></div>
